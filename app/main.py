@@ -32,13 +32,6 @@ def read_alternatives(question_id: int):
     return api.read_alternatives(question_id)
 
 
-@app.post("/answer", status_code=201)
-def create_answer(payload: UserAnswer):
-    payload = payload.dict()
-
-    return api.create_answer(payload)
-
-
 @app.get("/result/{user_id}")
 def read_result(user_id: int):
     return api.read_result(user_id)

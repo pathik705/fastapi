@@ -1,16 +1,10 @@
-# fastapi-example [![CircleCI](https://circleci.com/gh/marciovrl/fastapi-example.svg?style=svg)](https://circleci.com/gh/marciovrl/fastapi-example)
+# fastapi-example
 
 A simple example of using Fast API in Python.
 
 ## Preconditions:
 
 - Python 3
-
-## Clone the project
-
-```
-git clone https://github.com/marciovrl/fastapi-example.git
-```
 
 ## Run local
 
@@ -26,34 +20,42 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-### Run test
-
-```
-pytest app/test.py
-```
-
 ## Run with docker
 
-### Run server
+### Build docker image
 
 ```
-docker-compose up -d --build
+docker build -t my-fastapi-app:1.0 .
 ```
 
-### Run test
+### Run container
 
 ```
-docker-compose exec app pytest test/test.py
+docker run --name my-fastapi-container -d -p 8000:8000 my-fastapi-app:1.0
+```
+
+### Tagging docker image to push to docker hub
+
+```
+docker tag <image-id> <docker-hub-username>/<image-name>:<tag>
+docker tag my-fastapi-app jayanth00003/my-fastapi-app:1.0
+```
+
+### Log in to Docker Hub
+
+```
+docker login
+```
+
+### Push image to docker hub
+
+```
+docker push <docker-hub-username>/<image-name>:<tag>
+docker push jayanth00003/my-fastapi-app:1.0
 ```
 
 ## API documentation (provided by Swagger UI)
 
 ```
 http://127.0.0.1:8000/docs
-```
-
-### Run server
-
-```
-docker-compose exec db psql --username=fastapi --dbname=fastapi_dev
 ```
