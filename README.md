@@ -38,7 +38,7 @@ docker run --name my-fastapi-container -d -p 8000:8000 my-fastapi-app:1.0
 
 ```
 docker tag <image-id> <docker-hub-username>/<image-name>:<tag>
-docker tag my-fastapi-app jayanth00003/my-fastapi-app:1.0
+docker tag my-fastapi-app:1.0 jayanth00003/my-fastapi-app:1.0
 ```
 
 ### Log in to Docker Hub
