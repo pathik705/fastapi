@@ -35,3 +35,12 @@ def read_alternatives(question_id: int):
 @app.get("/result/{user_id}")
 def read_result(user_id: int):
     return api.read_result(user_id)
+
+
+
+@app.get("/result/{user_id}")
+def read_result(user_id: int):
+    return api.read_result(user_id)
+@app.get("/result/{user_id}")
+def read_result(user_id: int):
+    return api.read_result(user_id)
